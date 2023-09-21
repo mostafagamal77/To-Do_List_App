@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+:root {
+  --primary: #ca2c3f;
+  --business: #3576a7;
+  --personal: var(--primary);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --business-glow: 0px 0px 4px rgba(53, 118, 167, 0.75);
+  --personal-glow: 0px 0px 4px rgba(202, 44, 63, 0.75);
+}
+html {
+  font-size: 13px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+  background-image: linear-gradient(to right, #000046, #095063);
+}
+.container .todo-app {
+  background-color: #addce4;
+  width: 100%;
+  max-width: 540px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.todo-app .head h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #000046;
+}
+.todo-app .head #input-task {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  background: white;
+  box-shadow: var(--shadow);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.category label {
+  flex: 1;
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  font-size: 1.13rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid var(--business);
+  box-shadow: var(--business-glow);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.bubble.personal {
+  border-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+.bubble::after {
+  content: "";
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: var(--business);
+  box-shadow: var(--business-glow);
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+.bubble.personal::after {
+  background-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.todo-app .add {
+  width: 100%;
+  color: #fff;
+  background-color: var(--primary);
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--personal-glow);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+.todo-app .add:hover {
+  opacity: 0.8;
+}
+.tasks {
+  margin: 1rem 0;
+}
+.tasks .task {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem 0;
+  max-width: 500px;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.tasks .task label {
+  display: block;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.tasks .task .task-content {
+  flex: 1;
+}
+.tasks .task .task-content p {
+  line-height: 1.4;
+  font-size: 1.125rem;
+  word-break: break-all;
+  cursor: default;
+}
+.tasks .task .task-content input {
+  font-size: 1.2rem;
+  cursor: initial;
+  width: 100%;
+}
+.tasks .task .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+.tasks .task .actions .btns {
+  display: flex;
+  align-items: center;
+}
+.tasks .task .actions button {
+  display: block;
+  padding: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s ease-in-out;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+@media (max-width: 400px) {
+  .tasks .actions button {
+    font-size: 0.9rem;
+  }
+}
+.tasks .task .actions button:hover {
+  opacity: 0.8;
+}
+.tasks .task .actions .edit {
+  background-color: var(--business);
+  margin-right: 0.5rem;
+}
+.tasks .task .actions .delete {
+  background-color: var(--primary);
+}
+.tasks .task .actions span {
+  display: block;
+}
+.task.done .task-content input {
+  text-decoration: line-through;
+}
+.task.done .task-content p {
+  text-decoration: line-through;
+}

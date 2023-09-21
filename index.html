@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-app">
+        <div class="head">
+          <h2>CREATE A TODO</h2>
+          <div class="input-box">
+            <input
+              type="text"
+              id="input-task"
+              name="contents"
+              placeholder="Add Your Task..."
+            />
+          </div>
+        </div>
+        <div class="category">
+          <label>
+            <input type="radio" name="category" id="cat1" value="business" />
+            <span class="bubble business"></span>
+            <div class="business">Business</div>
+          </label>
+          <label>
+            <input type="radio" name="category" id="cat2" value="personal" />
+            <span class="bubble personal"></span>
+            <div class="business">Personal</div>
+          </label>
+        </div>
+        <button class="add">Add Task</button>
+        <div class="tasks"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
